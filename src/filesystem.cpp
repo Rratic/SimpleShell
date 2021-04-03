@@ -1,6 +1,6 @@
 #include "filesystem.h"
 filesystem::filesystem(){
-    root=new file("",true,false,nullptr);
+    root=new file("",true,false,0,nullptr);
     current=root;
 }
 filesystem::~filesystem(){
