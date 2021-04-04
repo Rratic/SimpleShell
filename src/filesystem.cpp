@@ -20,3 +20,13 @@ file *filesystem::trace(path _filepath){
     }
     return temp;
 }
+uint8_t filesystem::cd(path _filepath){
+    file *temp=trace(_filepath);
+    if(temp==nullptr)return BadPath;
+    current=temp;
+    if(!_filepath.isAbsolute)currentpath=_filepath;
+    else currentpath.mergewith(_filepath);
+    return 0;
+}
+uint8_t filesystem::touch(path _filename,uint64_t _filesize=0,bool _h=false){
+}

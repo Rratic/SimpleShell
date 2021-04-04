@@ -1,9 +1,12 @@
+#ifndef ss_file
+#define ss_file
 #include "stringtools.h"
 #include <stdint.h>
 #define EmptyString 1// 字符串为空
 #define BadPath 2// 路径错误
 #define IllegalName 3// 不允许的命名，例如"A..Q"
 #define WrongUse 4// 不按要求使用
+#define SameNameWithDict// 与目录重名
 class file{
     public:
     string name;
@@ -28,3 +31,4 @@ class path{
     string output();
     void clear(bool mode);
 };
+#endif

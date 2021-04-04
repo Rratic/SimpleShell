@@ -79,6 +79,7 @@ string path::output(){
         ans+=(i+"/");
     }
     if(parts.empty())ans+=".";
+    return ans;
 }
 void path::clear(bool mode){
     isAbsolute=mode;

@@ -1,3 +1,5 @@
+#ifndef ss_filesystem
+#define ss_filesystem
 #include "basic/file.h"
 class filesystem{
     public:
@@ -16,3 +18,4 @@ class filesystem{
     path pwd();
     void exit();
 };
+#endif
