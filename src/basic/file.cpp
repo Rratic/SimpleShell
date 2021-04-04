@@ -20,6 +20,13 @@ file::~file(){
     if(in!=nullptr)delete in;
     for(auto i:contain)delete i;
 }
+file *file::search(string _filename){
+    for(auto i:contain){
+        if(i->name==_filename)return i;
+    }
+    return nullptr;
+}
+path::path(){isAbsolute=true;}
 uint8_t path::load(string s){
     if(s=="")return EmptyString;
     if(s[0]=='/')isAbsolute=true;
@@ -41,12 +48,26 @@ uint8_t path::merge(path &base){
     if(isAbsolute)return WrongUse;
     for(auto i:parts){
         if(i==".."){
-            if(base.parts.empty()&&!base.isAbsolute)parts.push_back("..");
-            if(!base.parts.empty()&&base.parts.back()!="..")parts.pop_back();
+            if(base.parts.empty()&&!base.isAbsolute)base.parts.push_back("..");
+            if(!base.parts.empty()&&base.parts.back()!="..")base.parts.pop_back();
             //"D:/../../"=>"D:/"
         }else if(i!="."){
             //不检查名字
             base.parts.push_back(i);
+        }
+    }
+    return 0;
+}
+uint8_t path::mergewith(path expend){
+    if(expend.isAbsolute)return WrongUse;
+    for(auto i:expend.parts){
+        if(i==".."){
+            if(parts.empty()&&!isAbsolute)parts.push_back("..");
+            if(!parts.empty()&&parts.back()!="..")parts.pop_back();
+            //"D:/../../"=>"D:/"
+        }else if(i!="."){
+            //不检查名字
+            parts.push_back(i);
         }
     }
     return 0;
@@ -58,4 +79,8 @@ string path::output(){
         ans+=(i+"/");
     }
     if(parts.empty())ans+=".";
+}
+void path::clear(bool mode){
+    isAbsolute=mode;
+    parts.clear();
 }

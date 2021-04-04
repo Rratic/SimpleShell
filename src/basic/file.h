@@ -15,12 +15,16 @@ class file{
     file(string nname,bool isDictionary,bool doHide,uint64_t leng,file *place);
     file(file &a);
     ~file();
+    file *search(string _filename);
 };
 class path{
     public:
     bool isAbsolute;
     vector<string>parts;
+    path();
     uint8_t load(string s);
     uint8_t merge(path &base);// 以a为基路径，此为相对路径，将a路径延长
+    uint8_t mergewith(path expend);
     string output();
+    void clear(bool mode);
 };

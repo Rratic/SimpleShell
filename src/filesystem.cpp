@@ -4,11 +4,19 @@ filesystem::filesystem(){
     current=root;
 }
 filesystem::~filesystem(){
-    if(current==root){
-        delete root;
+    delete root;
+}
+void filesystem::clear(){
+    for(auto i:root->contain)delete i;
+    current=root;
+    currentpath.clear(true);
+}
+file *filesystem::trace(path _filepath){
+    if(!_filepath.isAbsolute)_filepath.mergewith(currentpath);
+    file *temp=root;
+    for(auto i:_filepath.parts){
+        temp=temp->search(i);
+        if(temp==nullptr)return nullptr;
     }
-    else{
-        delete current;
-        delete root;
-    }
+    return temp;
 }

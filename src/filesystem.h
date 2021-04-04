@@ -3,6 +3,7 @@ class filesystem{
     public:
     file *root;
     file *current;
+    path currentpath;
     filesystem();
     ~filesystem();
     void clear();

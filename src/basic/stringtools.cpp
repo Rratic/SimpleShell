@@ -1,6 +1,6 @@
 #include "stringtools.h"
 bool isCorrectFileName(string s){
-    if(s=="."||s.find("..")!=s.npos)return false;
+    if(s=="."||s.find("..")!=s.npos||s.length()>255)return false;
     return true;
 }
 vector<string> split(string s,char sign){
