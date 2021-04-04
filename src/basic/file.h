@@ -1,5 +1,9 @@
 #include "stringtools.h"
 #include <stdint.h>
+#define EmptyString 1// 字符串为空
+#define BadPath 2// 路径错误
+#define IllegalName 3// 不允许的命名，例如"A..Q"
+#define WrongUse 4// 不按要求使用
 class file{
     public:
     string name;
@@ -16,5 +20,7 @@ class path{
     public:
     bool isAbsolute;
     vector<string>parts;
-    bool load(string s);
+    uint8_t load(string s);
+    uint8_t merge(path &base);// 以a为基路径，此为相对路径，将a路径延长
+    string output();
 };
