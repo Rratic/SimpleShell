@@ -10,5 +10,6 @@ class file{
     file(string,bool,bool,len_t,file*);
     file(file &);
     ~file();
-    file *search(string,unsigned long=1);
+    file *search(string,unsigned long=1,bool=false);
+    bool create(string,bool=false,bool=false,len_t=0);
 };

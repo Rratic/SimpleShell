@@ -15,8 +15,8 @@ void path::load(string s){
         }
     }
 }
-path path::merge(path base,path append){
-    if(isAbsolute)throw DomainErr;
+path merge(path base,path append){
+    if(base.isAbsolute)throw DomainErr;
     for(auto i:append.parts){
         if(i==".."){
             if(!base.isAbsolute&&base.parts.empty())base.parts.push_back("..");

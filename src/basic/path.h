@@ -5,7 +5,7 @@ class path{
     vector<string>parts;
     path();
     void load(string);
-    path merge(path,path);
     string output();
     void clear(bool=false);
 };
+path merge(path,path);

@@ -7,7 +7,7 @@ class filesystem{
     filesystem();
     ~filesystem();
     void clear();
-    file *trace(path _filepath);
+    file *trace(path _filepath,bool _h=true);
     // Basic:
     void cd(path _dic);
     void touch(path _filename,len_t _filesize=0,bool _h=false);
