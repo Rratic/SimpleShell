@@ -14,5 +14,5 @@ class filesystem{
     void mkdir(path _filename,bool _h=false);
     string find(string _filename,bool _r=false,bool _h=false);
     path pwd();
-    void exit();
+    string BasicOper(vector<string>);
 };

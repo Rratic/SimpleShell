@@ -65,3 +65,6 @@ void filesystem::mkdir(path _filename,bool _h=false){
 }
 string filesystem::find(string _filename,bool _r=false,bool _h=false){
 }
+path filesystem::pwd(){
+    return currentpath;
+}
